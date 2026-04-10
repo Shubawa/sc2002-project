@@ -10,6 +10,8 @@ public class SpeedBasedTurnOrder implements ITurnOrderStrategy {
 
     @Override
     public List<Combatant> determineTurnOrder(List<Combatant> combatants) {
-
+        List<Combatant> ordered = new ArrayList<>(combatants);
+        ordered.sort(Comparator.comparingInt(Combatant::getSpeed).reversed());
+        return ordered;
     }
 }
