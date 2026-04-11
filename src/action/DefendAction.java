@@ -6,9 +6,18 @@ import engine.BattleContext;
 
 public class DefendAction implements IAction {
 
+    private static final int DURATION = 2;
+
     @Override
-    public String execute(Combatant actor, Combatant target, BattleContext ctx) {
-        actor.applyEffect(new DefendEffect(2));
-        return actor.getName() + " -> Defend: DEF +" + 10 + " for 2 turns.";
+    public void execute(Combatant actor, Combatant target, BattleContext ctx) {
+        int beforeDef = actor.getDefense();
+        actor.applyEffect(new DefendEffect(DURATION));
+        ctx.log(actor.getName() + " -> Defend -> DEF +10 for " + DURATION + " rounds."
+                + " (DEF: " + beforeDef + " -> " + actor.getDefense() + ")");
+    }
+
+    @Override
+    public String getName() {
+        return "Defend";
     }
 }
