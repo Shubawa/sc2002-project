@@ -1,7 +1,7 @@
 package action;
 
 import model.Combatant;
-import engine.BattleContext;2
+import engine.BattleContext;
 
 public class BasicAttackAction implements IAction {
 
