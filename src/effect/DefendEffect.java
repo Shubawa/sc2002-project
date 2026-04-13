@@ -12,20 +12,32 @@ public class DefendEffect implements IStatusEffect {
     }
 
     @Override
-    public void apply(Combatant target) {
-        target.modifyDefense(DEFENSE_BONUS);
+    public void onApply(Combatant c) {
+        c.modifyDefense(DEFENSE_BONUS);
     }
 
     @Override
-    public void tick(Combatant target) {
-        turnsRemaining--;
-        if (turnsRemaining <= 0) {
-            target.modifyDefense(-DEFENSE_BONUS);
-        }
+    public void tick() {
+        if (turnsRemaining > 0) turnsRemaining--;
+    }
+
+    @Override
+    public void onExpire(Combatant c) {
+        c.modifyDefense(-DEFENSE_BONUS);
     }
 
     @Override
     public boolean isExpired() {
         return turnsRemaining <= 0;
     }
+
+    @Override
+    public String getName() {
+        return "Defend";
+    }
+
+    public int getTurnsRemaining() {
+        return turnsRemaining;
+    }
 }
+
