@@ -1,5 +1,8 @@
 package model;
 
+import effect.ArcaneBlastEffect;
+import effect.IStatusEffect;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +13,8 @@ public class Wizard extends Player {
     private static final int BASE_DEF = 10;
     private static final int BASE_SPD = 20;
 
-    private int arcaneBonus = 0;
-
     public Wizard(String instanceName) {
         super(instanceName, BASE_HP, BASE_ATK, BASE_DEF, BASE_SPD);
-    }
-
-    public int getArcaneBonus() {
-        return arcaneBonus;
     }
 
     @Override
@@ -45,22 +42,25 @@ public class Wizard extends Player {
 
             if (!e.isAlive()) {
                 sb.append(" X ELIMINATED");
-                arcaneBonus += 10;
-                modifyAttack(10);
+
+                ArcaneBlastEffect existing = findArcaneBlastEffect();
+                if (existing != null) {
+                    existing.addBonus(10, this);
+                } else {
+                    applyEffect(new ArcaneBlastEffect(10));
+                }
+
                 sb.append(" | ATK: ").append(getAttack() - 10).append(" -> ").append(getAttack()).append(" (+10)");
             }
         }
         return sb.toString();
     }
 
-    @Override
-    public void resetForLevel() {
-        super.resetForLevel();
-        arcaneBonus = 0;
-        int currentAtk = getAttack();
-        if (currentAtk != BASE_ATK) {
-            modifyAttack(BASE_ATK - currentAtk);
+    private ArcaneBlastEffect findArcaneBlastEffect() {
+        for (IStatusEffect e : getActiveEffects()) {
+            if (e instanceof ArcaneBlastEffect) return (ArcaneBlastEffect) e;
         }
+        return null;
     }
 
     @Override

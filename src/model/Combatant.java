@@ -114,6 +114,9 @@ public abstract class Combatant {
   }
 
   public void resetForLevel() {
+      for (IStatusEffect e : activeEffects) {
+          e.onExpire(this);
+      }
       activeEffects.clear();
       defense = baseDefense;
       invulnerable = false;
