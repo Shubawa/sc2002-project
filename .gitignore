@@ -1,0 +1,16 @@
+out/
+.vscode/
+.idea/
+.DS_Store
+.classpath
+.project
+.settings/
+.factorypath
+.metadata
+.gradle/
+.idea/
+.vscode/
+.DS_Store
+.classpath
+.project
+sources.txt
