@@ -9,8 +9,8 @@ public class MediumLevel extends Level {
 
     public MediumLevel() {
         super("Medium",
-            () -> Arrays.asList(new Goblin("Goblin"), new Wolf("Wolf")),
-            () -> Arrays.asList(new Wolf("Wolf"), new Wolf("Wolf"))
+            () -> Arrays.asList(new Goblin("Goblin A"), new Wolf("Wolf A")),
+            () -> Arrays.asList(new Wolf("Wolf B"), new Wolf("Wolf C"))
         );
     }
 }

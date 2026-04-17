@@ -5,12 +5,12 @@ import model.Wolf;
 
 import java.util.Arrays;
 
-public class MediumLevel extends Level {
+public class HardLevel extends Level {
 
-    public MediumLevel() {
-        super("Medium",
-            () -> Arrays.asList(new Goblin("Goblin A"), new Wolf("Wolf A")),
-            () -> Arrays.asList(new Wolf("Wolf B"), new Wolf("Wolf C"))
+    public HardLevel() {
+        super("Hard",
+            () -> Arrays.asList(new Goblin("Goblin A"), new Goblin("Goblin B")),
+            () -> Arrays.asList(new Goblin("Goblin C"), new Wolf("Wolf A"), new Wolf("Wolf B"))
         );
     }
 }
