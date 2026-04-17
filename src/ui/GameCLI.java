@@ -9,7 +9,7 @@ import strategy.SpeedBasedTurnOrder;
 
 import java.util.*;
 
-public class GameCLI implements BattleEngine.UIDelegate {
+public class GameCLI implements UIDelegate {
 
     private static final String SEP  = "=".repeat(60);
     private static final String DASH = "-".repeat(60);
