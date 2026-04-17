@@ -164,7 +164,7 @@ public class GameCLI implements UIDelegate {
         }
 
         System.out.print(" | CD: " + player.getSpecialSkillCooldown());
-        System.out.println("\n");
+        System.out.println("\n\n\n");
     }
 
     @Override
