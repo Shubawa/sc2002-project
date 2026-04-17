@@ -7,10 +7,10 @@ import item.IItem;
 
 public class ItemAction implements IAction {
 
-    private final Item item;
+    private final IItem item;
     private final Combatant target;
 
-    public ItemAction(Item item, Combatant target) {
+    public ItemAction(IItem item, Combatant target) {
         this.item = item;
         this.target = target;
     }

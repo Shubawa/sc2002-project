@@ -3,7 +3,7 @@ package effect;
 import model.Combatant;
 
 public interface IStatusEffect {
-    void apply(Combatant target);
+    void onApply(Combatant combatant);
     void tick();
     void onExpire(Combatant combatant);
     String getName();

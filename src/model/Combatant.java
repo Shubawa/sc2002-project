@@ -1,3 +1,5 @@
+package model;
+
 import effect.IStatusEffect;
 
 import java.util.ArrayList;
