@@ -1,19 +1,8 @@
 # Turn-Based Combat Arena
 
-A CLI turn-based combat game built in Java for the SC2002 Object-Oriented Design & Programming group assignment.
+A CLI turn-based combat game built in Java.
 
 Choose a character (Warrior or Wizard), pick items, select a difficulty level, and battle through waves of enemies in a text-based arena.
-
-## Prerequisites
-
-- **Java JDK 8** or later (`javac` and `java` must be available on your PATH)
-
-Verify your installation:
-
-```bash
-java -version
-javac -version
-```
 
 ## Project Structure
 
@@ -62,16 +51,4 @@ Or compile and run manually:
 mkdir -p out
 javac -sourcepath src -d out $(find src -name "*.java")
 java -cp out Main
-```
-
-## Cleaning Build Output
-
-To remove compiled class files:
-
-```bash
-# macOS / Linux
-rm -rf out/
-
-# Windows (Command Prompt)
-rmdir /s /q out
 ```
